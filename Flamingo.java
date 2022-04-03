@@ -9,7 +9,7 @@ public class Flamingo extends NonPerforming {
         this.setSex(sex);
     }
     @Override
-    public void breed() {
+    public Animal[] breed() {
         int randomNum = (int) (Math.random() * (10000 - 3)) + 3;
         String FlamingoName = "Flamingo" + randomNum;
         String FlamingoSex;
@@ -18,6 +18,8 @@ public class Flamingo extends NonPerforming {
         } else {
             FlamingoSex = "m";
         }
-        Zoo.addAnimal(new Flamingo(FlamingoName, FlamingoSex));
+        Animal[] flamingoBabies = new Animal[1];
+        flamingoBabies[0] = new Flamingo(FlamingoName, FlamingoSex);
+        return flamingoBabies;
     }
 }

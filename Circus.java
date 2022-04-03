@@ -5,9 +5,9 @@ public class Circus extends BoardingHouse{
         System.out.println("Circus List --------------------|");
         for (int i = 0; i < animalList.length; i++){
             if (animalList[i] != null){
-                if (animalList[i].location.equals("circus")){
+                // if (animalList[i].location.equals("circus")){
                     System.out.println(animalList[i].getClass() + ": " + animalList[i].getName());
-                }
+                // }
             }
         }  
     }

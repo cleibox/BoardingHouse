@@ -32,6 +32,6 @@ public abstract class Animal{
     public String animalIs = "exhibiting"; // "performing", "breeding", "resting"
 
     public abstract void transfer();
-    public abstract void breed();
+    public abstract Animal[] breed();
     
 }//end of class

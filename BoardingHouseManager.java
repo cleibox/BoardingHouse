@@ -1,55 +1,11 @@
 import java.util.Scanner;
 
 public class BoardingHouseManager  {
-    static Scanner reader = new Scanner(System.in);
-    static Zoo zoo = new Zoo();
-    static Circus circus = new Circus();
-    public static void main(String[] args){
-        menu();
-        /*
-        // // zoo.printList();
-        // // circus.printList();
-        // // System.out.println("");
+    Scanner reader = new Scanner(System.in);
+    Zoo zoo = new Zoo();
+    Circus circus = new Circus();
 
-        // // System.out.println(BoardingHouse.animalList[0].location + "haha");
-        // // // BoardingHouse.animalList[0].location = "circus";
-        // // System.out.println(BoardingHouse.animalList[0].location + "hehe");
-        // // // zoo.printList();
-        // // // circus.printList();
-        
-        // // BoardingHouse.transferAnimal(BoardingHouse.animalList[0]);
-        // // // zoo.removeAnimal(BoardingHouse.animalList[0]);
-
-        // // System.out.println(BoardingHouse.findAnimal("dolphin2"));
-        // // System.out.println(BoardingHouse.findAnimal("dolphin0"));
-        // // System.out.println(BoardingHouse.findAnimal("dolphin1"));
-
-        // // System.out.println(BoardingHouse.animalList[BoardingHouse.findAnimal("dolphin1")].isTrained + "ahhahaha\n");
-        // // circus.train(BoardingHouse.animalList[BoardingHouse.findAnimal("dolphin1")]);
-        // // System.out.println(BoardingHouse.animalList[BoardingHouse.findAnimal("dolphin1")].isTrained + "ahhahaha\n");
-        // // BoardingHouse.animalList[BoardingHouse.findAnimal("dolphin1")].isFed = false;
-
-        // // zoo.printList();
-        // // circus.printList();
-        // // System.out.println("");
-
-        // // circus.train(BoardingHouse.animalList[BoardingHouse.findAnimal("dolphin1")]);
-        // // circus.train(circus.findAnimal("dolphin1"));
-        // // if (BoardingHouse.findAnimal("dolphin1") != -1){
-        // //     System.out.println(circus.animalList[circus.findAnimal("dolphin1")].isTrained + "ahhahaha");
-        // // }
-        // // else{
-        // //     System.out.println("you're done");
-        // // }
-
-        // zoo.printList();
-        // circus.printList();
-        // reader.close();
-        */
-        
-    }
-
-    public static void menu(){ 
+    public void openMenu(){ 
         int userChoice = 0; 
         do{
             System.out.println("\n----------------------------------------\nChoose one of the following options: \n1) Print a list of the Boarding House" + "\n2) Add an Animal" + "\n3) Remove an Animal" + "\n4) View an Animal" + "\n5) Quit");
@@ -148,7 +104,7 @@ public class BoardingHouseManager  {
         return userPetSex;
     }
 
-    public static void userManageAnimal(String userAnimalName){
+    public void userManageAnimal(String userAnimalName){
         int userChoice = 0; 
         do{
             System.out.println("\nViewing '" + BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].getName() + "' ----------\nAnimal Type: " + BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].getClass() + "\nAnimal Sex: " + BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].getSex() + "\nCurrent Behaviour: " + BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].animalIs + "\nCurrent Location: " + BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].location + "\nIs Fed? " + BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].isFed + "\nIs Rested? " + BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].isRested + "\nIs Trained? " + BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].isTrained);
@@ -170,7 +126,7 @@ public class BoardingHouseManager  {
             } else if (userChoice == 2){ // rest animal
                 BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].isRested = true;
             } else if (userChoice == 3){ // Breed animal
-                // BoardingHouse.breedAnimal(BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)]);
+                BoardingHouse.breedAnimal(userAnimalName);
             } else if (userChoice == 4){ // train animal
                 circus.train(BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)]);
             } else if (userChoice == 5){ // perform
@@ -179,8 +135,8 @@ public class BoardingHouseManager  {
                 zoo.exhibit(BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)]);
             } else if (userChoice == 7){ // transfer
                 BoardingHouse.animalList[BoardingHouse.findAnimal(userAnimalName)].transfer();
-            } else{ // incorrect user input
-                System.out.println("Enter a value between 1-7");
+            } else { // incorrect user input
+                System.out.println("Enter a value between 1-8");
             }
             
         } while (userChoice != 8);

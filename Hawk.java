@@ -9,8 +9,9 @@ public class Hawk extends NonPerforming {
         this.setSex(sex);
     }
     @Override
-    public void breed() {
-        for (int i = 0; i < 4; i++){
+    public Animal[] breed() {
+        Animal[] hawkBabies = new Animal[4];
+        for (int i = 0; i < hawkBabies.length; i++){
             int randomNum = (int) (Math.random() * (10000 - 3)) + 3;
             String hawkName = "Hawk" + randomNum;
             String hawkSex;
@@ -19,7 +20,8 @@ public class Hawk extends NonPerforming {
             } else {
                 hawkSex = "m";
             }
-            Zoo.addAnimal(new Hawk(hawkName, hawkSex));
+            hawkBabies[i] = new Hawk(hawkName, hawkSex);
         }
+        return hawkBabies;
     }
 }

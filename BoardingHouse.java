@@ -1,10 +1,17 @@
 public abstract class BoardingHouse {
-    public static Animal[] animalList = new Animal[50]; 
+    public Animal[] animalList = new Animal[50]; 
 
     public abstract void printList();
   
-    /*
-    public static void transferAnimal(Animal animal){
+    
+    public void transferAnimal(Animal animal){
+        if (this instanceof Zoo){
+            this.removeAnimal(animal);
+            
+        }
+        else {
+            this.removeAnimal(animal);
+        }
         for (int i = 0; i < animalList.length; i++){
             if (animalList[i] != null){
                 if (animalList[i] == animal){
@@ -18,9 +25,9 @@ public abstract class BoardingHouse {
             }
         }
     }
-    */
+    
 
-    public static void removeAnimal(Animal animal) {
+    public void removeAnimal(Animal animal) {
         for (int i = 0; i < animalList.length; i++){
             if (animalList[i] == animal){                
                 animalList[i] = null;
@@ -30,7 +37,7 @@ public abstract class BoardingHouse {
         }  
     }
 
-    public static int findAnimal(String animalName){
+    public int findAnimal(String animalName){
         for (int i = 0; i < animalList.length; i++){
             if (animalList[i] != null){
                 if (animalList[i].getName().equals(animalName)){
@@ -41,20 +48,17 @@ public abstract class BoardingHouse {
         return -1; 
     }
 
-    public static void breedAnimal(Animal animal){
-        // find f and m
+    public void addAnimal(Animal animal) {
         for (int i = 0; i < animalList.length; i++){
-            if ((animal.getClass() == animalList[i].getClass()) && (animalList[i] != animal)){
-                if (animal.getSex().equals("f") && animalList[i].getSex().equals("m")){
-                    animalList[i].breed();
-                } else if (animal.getSex().equals("m") && animalList[i].getSex().equals("f")){
-                    
-                }
+            if (animalList[i] == null){                
+                animal.location = "zoo";
+                animalList[i] = animal;
+                i = animalList.length;
             }
         }
     }
 
-    public static void rest(String animalName){
+    public void rest(String animalName){
         if ((animalList[findAnimal(animalName)].animalIs.equals("exhibiting") || animalList[findAnimal(animalName)].animalIs.equals("breeding") || animalList[findAnimal(animalName)].animalIs.equals("training") || animalList[findAnimal(animalName)].animalIs.equals("performing")) && !(animalList[findAnimal(animalName)] instanceof Parrot)){
             System.out.println(animalList[findAnimal(animalName)].getName() + " is now tired after " + animalList[findAnimal(animalName)].animalIs + " and will rest right now.");
             animalList[findAnimal(animalName)].isRested = true;

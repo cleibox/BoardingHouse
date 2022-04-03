@@ -9,7 +9,7 @@ public class Walrus extends NonPerforming {
         this.setSex(sex);
     }
     @Override
-    public void breed() {
+    public Animal[] breed() {
         int randomNum = (int) (Math.random() * (10000 - 3)) + 3;
         String WalrusName = "Walrus" + randomNum;
         String WalrusSex;
@@ -18,6 +18,8 @@ public class Walrus extends NonPerforming {
         } else {
             WalrusSex = "m";
         }
-        Zoo.addAnimal(new Dolphin(WalrusName, WalrusSex));
+        Animal[] walrusBabies = new Animal[1];
+        walrusBabies[0] = new Dolphin(WalrusName, WalrusSex);
+        return walrusBabies;
     }
 }

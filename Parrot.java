@@ -9,8 +9,10 @@ public class Parrot extends NonPerforming {
         this.setSex(sex);
     }
     @Override
-    public void breed() {
-        for (int i = 0; i < 6; i ++){
+    public Animal[] breed() {
+        Animal[] parrotBabies = new Animal[6];
+        
+        for (int i = 0; i < parrotBabies.length; i ++){
             int randomNum = (int) (Math.random() * (10000 - 3)) + 3;
             String parrotName = "Parrot" + randomNum;
             String parrotSex;
@@ -19,7 +21,8 @@ public class Parrot extends NonPerforming {
             } else {
                 parrotSex = "m";
             }
-            Zoo.addAnimal(new Parrot(parrotName, parrotSex));
+            parrotBabies[i] = new Parrot(parrotName, parrotSex);
         }
+        return parrotBabies;
     }
 }

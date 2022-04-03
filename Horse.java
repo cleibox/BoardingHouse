@@ -9,7 +9,7 @@ public class Horse extends Performing {
         this.setSex(sex);
     }
     @Override
-    public void breed() {
+    public Animal[] breed() {
         int randomNum = (int) (Math.random() * (10000 - 3)) + 3;
         String horseName = "Horse" + randomNum;
         String horseSex;
@@ -18,6 +18,8 @@ public class Horse extends Performing {
         } else {
             horseSex = "m";
         }
-        Zoo.addAnimal(new Horse(horseName, horseSex));
+        Animal[] horseBabies = new Animal[1];
+        horseBabies[0] = new Horse(horseName, horseSex);
+        return horseBabies;
     }
 }

@@ -9,7 +9,7 @@ public class Seal extends NonPerforming {
         this.setSex(sex);
     }
     @Override
-    public void breed() {
+    public Animal[] breed() {
         int randomNum = (int) (Math.random() * (10000 - 3)) + 3;
         String SealName = "Seal" + randomNum;
         String SealSex;
@@ -18,6 +18,8 @@ public class Seal extends NonPerforming {
         } else {
             SealSex = "m";
         }
-        Zoo.addAnimal(new Seal(SealName, SealSex));
+        Animal[] sealBabies = new Animal[1];
+        sealBabies[0] = new Seal(SealName, SealSex);
+        return sealBabies;
     }
 }

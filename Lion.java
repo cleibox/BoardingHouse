@@ -9,8 +9,10 @@ public class Lion extends Performing {
         this.setSex(sex);
     }
     @Override
-    public void breed() {
-        for (int i = 0; i < 3; i ++){
+    public Animal[] breed() {
+        Animal[] lionBabies = new Animal[3];
+        
+        for (int i = 0; i < lionBabies.length; i ++){
             int randomNum = (int) (Math.random() * (10000 - 3)) + 3;
             String lionName = "Lion" + randomNum;
             String lionSex;
@@ -19,7 +21,8 @@ public class Lion extends Performing {
             } else {
                 lionSex = "m";
             }
-            Zoo.addAnimal(new Lion(lionName, lionSex));
+            lionBabies[i] = new Lion(lionName, lionSex);
         }
+        return lionBabies;
     }
 }
